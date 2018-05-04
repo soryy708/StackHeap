@@ -50,10 +50,10 @@ Strategy: Pre-allocate a big array on the stack, and treat it as if it's the hea
     {
     	MyClass* object = static_new<MyClass>();
         if(object != nullptr)
-		{
-			// The object is now usable
-			static_delete<MyClass>(object);
-		}
+	{
+	    // The object is now usable
+	    static_delete<MyClass>(object);
+	}
     	return 0;
     }
 
