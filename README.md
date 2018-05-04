@@ -20,41 +20,41 @@ Strategy: Pre-allocate a big array on the stack, and treat it as if it's the hea
     
     int main()
     {
-    	int size = 8;
+        int size = 8;
         int* arr = (int*) StackHeap<STACKHEAP_SIZE>::malloc(sizeof(int) * size);
         if(arr != nullptr)
         {
-        	// Allocated successfully! Use as usual
+            // Allocated successfully! Use as usual
             StackHeap<STACKHEAP_SIZE>::free(arr);
         }
-    	return 0;
+        return 0;
     }
 ### C++ style allocation (new/delete)
     #define STACKCTOR_DEFINEHEAP
-	#include <stackctor.h>
+    #include <stackctor.h>
     
     class MyClass
     {
     public:
-	    MyClass()
-	    {
-		    // Constructor is automatically called
-	    }
-	    ~MyClass()
-	    {
-	    	// Destructor is automatically called
-	    }
+        MyClass()
+        {
+             // Constructor is automatically called
+        }
+        ~MyClass()
+        {
+            // Destructor is automatically called
+        }
     };
     
     int main()
     {
-    	MyClass* object = static_new<MyClass>();
+        MyClass* object = static_new<MyClass>();
         if(object != nullptr)
-	{
-	    // The object is now usable
-	    static_delete<MyClass>(object);
-	}
-    	return 0;
+        {
+            // The object is now usable
+            static_delete<MyClass>(object);
+        }
+        return 0;
     }
 
 ## License
